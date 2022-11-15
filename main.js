@@ -11,13 +11,10 @@ filenames.forEach(fName => {
     filnalHex.push(hash)
 })
 
-filnalHex.sort().join('')
+filnalHex.sort()
 console.log(filnalHex)
-
-filnalHex.forEach(hex=>{
-    resStr+=hex
-})
+resStr = filnalHex.join("")
 
 resStr+="makhmudov@tuta.io"
-resStr = crypto.createHash("sha3-256").digest("hex")
+resStr = crypto.createHash("sha3-256").update(resStr).digest("hex")
 console.log(resStr)
